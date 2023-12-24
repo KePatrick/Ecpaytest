@@ -35,9 +35,9 @@
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                 
-                    var newWindow = window.open("","_self");
-                    newWindow.document.write(xhr.responseText);
-                    newWindow.document.close();
+                    //var newWindow = window.open("","_self");
+                    //newWindow.document.write(xhr.responseText);
+                    //newWindow.document.close();
                     console.log("POST 请求成功:" + xhr.responseText);
                 } else {
                     
