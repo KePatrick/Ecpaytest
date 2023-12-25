@@ -44,17 +44,17 @@ public class OrderService {
 		obj.setTotalAmount(OOB.getTotalAmount());
 		obj.setTradeDesc("test Description");
 		obj.setItemName(OOB.getItemName());
-		obj.setReturnURL("http://211.23.128.214:5000");
+		obj.setReturnURL("http://localhost:8080/serverReturn");
 		obj.setNeedExtraPaidInfo("N");
-		obj.setOrderResultURL("http://localhost:8080/query.html");
+		obj.setOrderResultURL("http://localhost:8080/clientReturn");
 		String form = all.aioCheckOut(obj, null);
 		
 		return form;
 	}
-		public String queryOrder() {
+		public String queryOrder(String orderId) {
 			AllInOne all = new AllInOne("");
 			QueryTradeInfoObj obj = new QueryTradeInfoObj();
-			obj.setMerchantTradeNo("37e4356d6e1441e99275");
+			obj.setMerchantTradeNo(orderId);
 			return all.queryTradeInfo(obj);
 				
 			}
