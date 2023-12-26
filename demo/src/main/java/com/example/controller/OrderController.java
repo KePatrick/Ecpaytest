@@ -41,13 +41,13 @@ public class OrderController {
 		
 		return "1|OK";
 	}
-	@PostMapping("/clientReturn")									//付款後client端接綠界跳轉		//由表單直接跳轉post所以可以收到
-	public String clientReturn(@RequestBody String returnMsg,Model model) {
-		String MSgJSON = EcpayReturnConverter.convertToJSON(returnMsg);
-		System.out.println("clientReturn:"+MSgJSON);
-		model.addAttribute("jsonData", MSgJSON);
-
-		return "redirect:/payresult";
-	}
+//	@PostMapping("/clientReturn")									//付款後client端接綠界跳轉		//由表單直接跳轉post所以可以收到
+//	public String clientReturn(@RequestBody String returnMsg,Model model) {
+//		String MSgJSON = EcpayReturnConverter.convertToJSON(returnMsg);
+//		System.out.println("clientReturn:"+MSgJSON);
+//		model.addAttribute("jsonData", MSgJSON);
+//
+//		return "redirect:/payresult";
+//	}
 	
 }

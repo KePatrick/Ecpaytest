@@ -48,6 +48,7 @@ public class OrderService {
 		obj.setNeedExtraPaidInfo("N");
 		obj.setOrderResultURL("http://localhost:8080/clientReturn");
 		String form = all.aioCheckOut(obj, null);
+		System.out.println("tradeTime:"+OOB.getTradeTime());
 		
 		return form;
 	}
