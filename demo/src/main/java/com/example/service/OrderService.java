@@ -40,7 +40,7 @@ public class OrderService {
 		
 		AioCheckOutALL obj = new AioCheckOutALL();
 		obj.setMerchantTradeNo(uuId);
-		obj.setMerchantTradeDate("2017/01/01 08:05:23");
+		obj.setMerchantTradeDate(OOB.getTradeTime());
 		obj.setTotalAmount(OOB.getTotalAmount());
 		obj.setTradeDesc("test Description");
 		obj.setItemName(OOB.getItemName());

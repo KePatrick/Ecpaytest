@@ -1,9 +1,13 @@
 package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.service.OrderService;
 import com.example.utils.EcpayReturnConverter;
@@ -38,11 +42,12 @@ public class OrderController {
 		return "1|OK";
 	}
 	@PostMapping("/clientReturn")									//付款後client端接綠界跳轉		//由表單直接跳轉post所以可以收到
-	public String clientReturn(@RequestBody String returnMsg) {
+	public String clientReturn(@RequestBody String returnMsg,Model model) {
 		String MSgJSON = EcpayReturnConverter.convertToJSON(returnMsg);
 		System.out.println("clientReturn:"+MSgJSON);
-		
-		return MSgJSON;
+		model.addAttribute("jsonData", MSgJSON);
+
+		return "redirect:/payresult";
 	}
 	
 }
