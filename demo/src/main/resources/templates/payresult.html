@@ -2,20 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>付款結果通知</title>
 </head>
 <body>
-    <!-- 接收資料的Key 值為message -->
-    asdasdasd
-    <div></div>
+    
+    
+    <div id="paymentStatus"></div>
+    
     <script  th:inline="javascript">
-		var jsonData = /*[[${jsonData}]]*/ '';
+		var jsonData = /*[[${jsonData}]]*/ '';	//取得後端傳送data
 		var jsonObject = JSON.parse(jsonData);
 		console.log(jsonObject.RtnMsg);
 		
-        
-        
-		
+        if(jsonObject.RtnMsg=="Succeeded"){
+            document.getElementById("paymentStatus").innerHTML="付款成功<br>訂單編號:"+jsonObject.MerchantTradeNo;
+        }else{
+            document.getElementById("paymentStatus").innerHTML="付款失敗<br>訂單編號:"+jsonObject.MerchantTradeNo;
+        }
+        		
 	</script>
 </body>
 </html>
